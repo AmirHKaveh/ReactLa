@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { confirmAlert } from "react-confirm-alert";
+import LoadingScreen from "../../components/LoadingScreen";
 
 import "react-confirm-alert/src/react-confirm-alert.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,7 +17,7 @@ const Connections = () => {
   }
 
   const [getConnection, setConnection] = useState([]);
-  const [isLoading,setLoading]=useState(true);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +28,7 @@ const Connections = () => {
           method: "GET",
         }).then((response) => {
           setConnection(response.data);
-          setLoading(false)
+          setLoading(false);
         });
 
         // await axios.get(`${baseURL}connections`).then((response) => {
@@ -35,6 +36,8 @@ const Connections = () => {
         // });
         // console.log(response)
       } catch (err) {
+        setLoading(false);
+
         if (err.toJSON().message === "Network Error") {
           console.log(err.toJSON().message);
 
@@ -78,6 +81,7 @@ const Connections = () => {
 
   return (
     <div id="main">
+      {isLoading && <LoadingScreen />}
       <ToastContainer />
       <div className="page-heading">
         <div className="page-title">
@@ -139,21 +143,22 @@ const Connections = () => {
                           ></span>
                         </td>
                         <td>
-                          
-                            <Link
-                              to={`/connections/edit/${item.id}`}
-                            >
-                              <span className="btn btn-outline-info fa fa-pen"></span>
-                            </Link>
-                            <Link onClick={() => deleteConfirmation(item.id)}>
-                              <span className="btn btn-outline-danger fa fa-trash"></span>
-                            </Link>
+                          <Link to={`/connections/edit/${item.id}`}>
+                            <span className="btn btn-outline-info fa fa-pen"></span>
+                          </Link>
+                          <Link onClick={() => deleteConfirmation(item.id)}>
+                            <span className="btn btn-outline-danger fa fa-trash"></span>
+                          </Link>
                         </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
-              ) : <div className="alert alert-info text-center">Not Found Contents !</div>}
+              ) : (
+                <div className="alert alert-info text-center">
+                  Not Found Contents !
+                </div>
+              )}
             </div>
           </div>
         </div>

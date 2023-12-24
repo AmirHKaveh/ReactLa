@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { confirmAlert } from "react-confirm-alert";
+import LoadingScreen from "../../components/LoadingScreen";
 
 import "react-confirm-alert/src/react-confirm-alert.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -17,19 +18,22 @@ const Contents = () => {
   }
 
   const [contents, setContents] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-
         await axios({
           baseURL,
           url: "contents",
           method: "GET",
         }).then((response) => {
           setContents(response.data);
+          setLoading(false);
         });
       } catch (err) {
+        setLoading(false);
+
         if (err.toJSON().message === "Network Error") {
           console.log(err.toJSON().message);
 
@@ -44,7 +48,6 @@ const Contents = () => {
 
     fetchData();
   }, []);
-
 
   const deleteConfirmation = (id) => {
     confirmAlert({
@@ -75,6 +78,8 @@ const Contents = () => {
   return (
     <div id="main">
       <ToastContainer />
+      {isLoading && <LoadingScreen />}
+
       <div className="page-heading">
         <div className="page-title">
           <div className="row">
@@ -129,7 +134,7 @@ const Contents = () => {
                         </td>
                         <td>{item.title}</td>
                         <td>{item.createDate}</td>
-                       
+
                         <td>
                           <span
                             className={
@@ -147,7 +152,7 @@ const Contents = () => {
                             <Link to={`/contents/edit/${item.id}`}>
                               <span className="btn btn-outline-info fa fa-pen"></span>
                             </Link>
-                            <Link onClick={()=>deleteConfirmation(item.id)}>
+                            <Link onClick={() => deleteConfirmation(item.id)}>
                               <span className="btn btn-outline-danger fa fa-trash"></span>
                             </Link>
                           </div>
@@ -157,7 +162,9 @@ const Contents = () => {
                   </tbody>
                 </table>
               ) : (
-                <div className="alert alert-info text-center">Not Found Contents !</div>
+                <div className="alert alert-info text-center">
+                  Not Found Contents !
+                </div>
               )}
             </div>
           </div>

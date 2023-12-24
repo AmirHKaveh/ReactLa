@@ -164,3 +164,8 @@ html[data-theme="dark"] .table {
   color: var(--bs-table-color);
   border-color: var(--bs-table-border-color);
 }
+
+
+html[data-theme="dark"] .loading-screen {
+  background-color: #1e1e2d;
+}
