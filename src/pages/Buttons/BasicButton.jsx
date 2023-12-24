@@ -6,7 +6,7 @@ const BasicButton = () => {
             </div>
 
             <div className="card-body">
-                <p class="text-muted">Use the <code>.btn .btn-color</code> classes.</p>
+                <p className="text-muted">Use the <code>.btn .btn-color</code> classes.</p>
                 <div className="buttons">
                     <a className="btn btn-primary">Primary</a>
                     <a className="btn btn-success">Success</a>
@@ -20,7 +20,7 @@ const BasicButton = () => {
 
                 <hr />
 
-                <p class="text-muted">Use the <code>.btn .rounded-pill</code> classes.</p>
+                <p className="text-muted">Use the <code>.btn .rounded-pill</code> classes.</p>
                 <div className="buttons">
                     <a className="btn btn-primary rounded-pill">Primary</a>
                     <a className="btn btn-success rounded-pill">Success</a>

@@ -6,7 +6,7 @@ export default function IconButton() {
             </div>
 
             <div className="card-body">
-                <p class="text-muted">Use the <code>.icon</code> and <code>.icon-left</code> classes.</p>
+                <p className="text-muted">Use the <code>.icon</code> and <code>.icon-left</code> classes.</p>
                 <div className="buttons">
                     <a className="btn btn-primary">Primary <i className="fa fa-user" /></a>
                     <a className="btn btn-success">Success <i className="fa fa-check" /></a>

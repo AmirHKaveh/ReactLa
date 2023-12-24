@@ -6,7 +6,7 @@ export default function OutlineButton() {
             </div>
 
             <div className="card-body">
-                <p class="text-muted">Use the <code>.btn .btn-outline-color</code> classes.</p>
+                <p className="text-muted">Use the <code>.btn .btn-outline-color</code> classes.</p>
                 <div className="buttons">
                     <a className="btn btn-outline-primary">Primary</a>
                     <a className="btn btn-outline-success">Success</a>
