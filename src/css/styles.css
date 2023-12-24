@@ -1,15 +1,58 @@
 :root {
-  --background: #f2f2f2;
-  --text-primary: #0f0f0f;
-  --text-secondary: #4e4e4e;
-  --accent: #dfb017;
-  --accent-hover: #cea315;
-  --border: #1f1e1e;
-  --shadow: 7px 15px 13px -4px #00000056;
+  --background-color: #f2f7ff;
+  --background-color-secondary: #fff;
+  --text-color-primary: #000;
+  --text-color-secondary: #7c8db5;
+  --placeholder-color: #838383;
+  --border-color: #35354f;
+  --text-color-link: #4a4a4f;
+  --text-color-link-hover: #25396f;
+  --text-color-link-active: #fff;
+  --text-color-icon: #737380;
+  --text-color-icon-hover: #25396f;
+  --text-color-icon-active: #fff;
+  --background-color-link-hover: rgb(240, 241, 245);
+  --background-color-link-active: #435ebe;
+
+  --background-color-scrollbar: #f5f5f5;
+  --background-color-scrollbar-secondary: #aaaaaa67;
 }
+html[data-theme="light"] {
+  --background-color: #f2f7ff;
+  --background-color-secondary: #fff;
+  --text-color-primary: #000;
+  --text-color-secondary: #7c8db5;
+  --placeholder-color: #838383;
+  --border-color: #35354f;
+  --text-color-link: #4a4a4f;
+  --text-color-link-hover: #25396f;
+  --text-color-link-active: #fff;
+  --text-color-icon: #737380;
+  --text-color-icon-hover: #25396f;
+  --text-color-icon-active: #fff;
+  --background-color-link-hover: rgb(240, 241, 245);
+  --background-color-link-active: #435ebe;
+
+  --background-color-scrollbar: #f5f5f5;
+  --background-color-scrollbar-secondary: #aaaaaa67;
+}
+html[data-theme="dark"] {
+  --background-color: #211815;
+  --background-color-secondary: #1e1e2d;
+  --text-color-primary: #f2f2f2;
+  --text-color-secondary: #c2c2d9;
+  --placeholder-color: #a5a5a5;
+  --border-color: #35354f;
+  --text-color-link: #9899ac;
+  --text-color-link-hover: #25396f;
+  --text-color-icon-hover: #7c8db5;
+  --background-color-link-hover: #282839;
+}
+
 html[data-theme="dark"] body {
-  background-color: #151521;
-  color: #f2f2f2 !important;
+  background-color: var(--background-color);
+  color: var(--text-color-primary) !important;
+
   /* --text-secondary: #a7a4a4;
     --accent: #6a5acd;
     --accent-hover: #5b4cbe; 
@@ -18,7 +61,7 @@ html[data-theme="dark"] body {
 
   /* CKEDITOR */
   --ck-color-base-foreground: hsl(0, 0%, 98%);
-  --ck-color-base-background: hsl(0, 0%, 6%);
+  --ck-color-base-background: var(--background-color-secondary);
   /* Overrides the border radius setting in the theme. */
   --ck-border-radius: 4px;
 
@@ -126,26 +169,26 @@ html[data-theme="dark"] body {
   --ck-color-link-default: hsl(190, 100%, 75%);
 }
 html[data-theme="dark"] .card {
-  background-color: #1e1e2d;
-  color: #f2f2f2 !important;
+  background-color: var(--background-color-secondary);
+  color: var(--text-color-primary) !important;
 }
 html[data-theme="dark"] .card-header {
-  background-color: #1e1e2d !important;
-  color: #f2f2f2 !important;
+  background-color: var(--background-color-secondary) !important;
+  color: var(--text-color-primary) !important;
 }
 html[data-theme="dark"] .form-control {
-  background-color: #1e1e2d !important;
-  color: #c2c2d9 !important;
+  background-color: var(--background-color-secondary) !important;
+  color: var(--text-color-secondary) !important;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  border: 1px solid #35354f;
+  border: 1px solid var(--border-color);
 }
 
 html[data-theme="dark"] .form-control::placeholder {
-  color: #a5a5a5 !important;
+  color: var(--placeholder-color) !important;
 }
 
 html[data-theme="dark"] .form-control::-ms-input-placeholder {
-  color: #a5a5a5 !important;
+  color: var(--placeholder-color) !important;
 }
 
 /* html[data-theme=dark] .form-label{
@@ -165,7 +208,6 @@ html[data-theme="dark"] .table {
   border-color: var(--bs-table-border-color);
 }
 
-
 html[data-theme="dark"] .loading-screen {
-  background-color: #1e1e2d;
+  background-color: var(--background-color-secondary);
 }
